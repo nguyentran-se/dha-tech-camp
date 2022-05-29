@@ -1,16 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Challenge1() {
-  const [isShow, setIsShow] = useState(false);
-  function handleOpen() {
-    setIsShow(true);
-  }
-  function handleClose() {
-    setIsShow(false);
-  }
   return (
     <div>
-      <button onClick={handleOpen}>Open</button>
+      <button>Open</button>
       {/* 
       <div className="overlay">
         <div className="modal">
