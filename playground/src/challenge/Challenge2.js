@@ -1,5 +1,8 @@
 import React from "react";
 
+const FAKE_USERNAME = "nguyentran";
+const FAKE_PASSWORD = "123123";
+
 function Challenge2() {
   return (
     <div>

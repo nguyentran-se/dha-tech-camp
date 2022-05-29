@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const FAKE_USERNAME = "admin";
-const FAKE_PASSWORD = "123";
+const FAKE_USERNAME = "nguyentran";
+const FAKE_PASSWORD = "123123";
 
 function Challenge2() {
   const [username, setUsername] = useState("");
