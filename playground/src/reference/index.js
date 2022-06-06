@@ -7,6 +7,7 @@ function Reference() {
       <div className="navigation">
         <NavLink to="1">🚀 Reference 1</NavLink>
         <NavLink to="2">🚀 Reference 2</NavLink>
+        <NavLink to="3">🚀 Reference 3</NavLink>
       </div>
       <Outlet />
     </div>
