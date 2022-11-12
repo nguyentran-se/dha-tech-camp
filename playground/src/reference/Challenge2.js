@@ -1,53 +1,58 @@
-import React, { useState } from "react";
-
-const FAKE_USERNAME = "nguyentran";
-const FAKE_PASSWORD = "123123";
+import React, { useState } from 'react';
+import { fakeLoginApi } from '../utils';
 
 function Challenge2() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (username === FAKE_USERNAME && password === FAKE_PASSWORD) {
+    setLoading(true);
+    try {
+      await fakeLoginApi(username, password);
       setIsLoggedIn(true);
+      setError(null);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
     }
   }
 
   function handleLogout() {
     setIsLoggedIn(false);
-    setUsername("");
-    setPassword("");
+    setUsername('');
+    setPassword('');
   }
-  const disabled = username === "" || password === "";
+
+  const disabled = username === '' || password === '';
+  if (loading) return <div className="lds-dual-ring"></div>;
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username </label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label htmlFor="password">Password </label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
         {isLoggedIn ? (
-          <button type="button" onClick={handleLogout} className="btn-clear">
-            Logout
-          </button>
+          <>
+            <h4>Hi {username}! Welcome to DataHouse</h4>
+            <button type="button" onClick={handleLogout} className="btn-clear">
+              Logout
+            </button>
+          </>
         ) : (
-          <button type="submit" disabled={disabled}>
-            Login
-          </button>
+          <>
+            <label htmlFor="username">Username </label>
+            <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <label htmlFor="password">Password </label>
+            <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <button type="submit" disabled={disabled}>
+              Login
+            </button>
+          </>
         )}
       </form>
+      <span style={{ color: 'salmon' }}>{error}</span>
     </div>
   );
 }

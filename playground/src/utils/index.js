@@ -1,3 +1,4 @@
+
 export const getPhotos = async () => {
   const url = "https://jsonplaceholder.typicode.com/photos";
   const response = await fetch(url);
@@ -11,9 +12,21 @@ export const renderPhotos = (photos) => {
       <div>
         <p>Title: {p.title}</p>
         <div>
-          <img src={p.thumbnailUrl} alt="photo" />
+          <img src={p.thumbnailUrl} alt="dummy photos"  />
         </div>
       </div>
     );
   });
 };
+
+export const fakeLoginApi = (username, password) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (username === process.env.REACT_APP_FAKE_USERNAME && password === process.env.REACT_APP_FAKE_PASSWORD) {
+        resolve({username, password});
+      }else {
+        reject('This user does not exist!')
+      }
+    }, 1000)
+  })
+}
