@@ -16,7 +16,7 @@ function Challenge2() {
     // fakeLoginApi(username, password);
   }
 
-  // loading: <div className="lds-dual-ring"></div>
+  // const LoadingIndicator = <div className="lds-dual-ring"></div>
 
   return (
     <div>
