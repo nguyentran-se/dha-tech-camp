@@ -14,8 +14,13 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script type="module">
     // 💪 YOUR SCRIPT
+    // document.createElement()
+    // React.createElement('h2', { children: 'Hello World' }),
+    // React.createElement('h2', null, 'Hello World')
+    // const heading = React.createElement('div', { children: 'Hello World'})
     const container = document.getElementById("root");
     const root = ReactDOM.createRoot(container);//🚀 this will enable new feature of React@18
+    root.render(heading);
   </script>
 </body>
 </html>

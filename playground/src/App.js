@@ -7,6 +7,7 @@ import Challenge3 from "./challenge/Challenge3";
 import Playground from "./play";
 import Counter from "./play/Counter";
 import Form from "./play/Form";
+import Hooks from "./play/Hooks";
 import Reference from "./reference";
 import Challenge1Reference from "./reference/Challenge1";
 import Challenge2Reference from "./reference/Challenge2";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Playground />}>
           <Route path="counter" element={<Counter />} />
           <Route path="form" element={<Form />} />
+          <Route path="hooks" element={<Hooks />} />
         </Route>
         <Route path="challenge" element={<Challenge />}>
           <Route path="1" element={<Challenge1 />} />

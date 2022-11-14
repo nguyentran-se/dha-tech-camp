@@ -7,6 +7,7 @@ function Playground() {
       <div className="navigation">
         <NavLink to="counter">🎮 Counter</NavLink>
         <NavLink to="form">🎮 Form</NavLink>
+        <NavLink to="hooks">🎮 Hooks</NavLink>
       </div>
       <Outlet />
     </div>
